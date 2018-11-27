@@ -9,6 +9,8 @@ class MrfazryPalindromeTest < Minitest::Test
   #   assert true
   # end
 
+  # test for string
+
   def test_non_palindrome
     refute "apple".palindrome?
   end
@@ -23,6 +25,32 @@ class MrfazryPalindromeTest < Minitest::Test
 
   def test_palindrome_with_punctuation
     assert "Madam, I'm Adam.".palindrome?
+  end
+
+  def test_palindrome_alphanumeric
+    assert "saya suka 101 akusayas".palindrome?
+  end
+
+  def test_non_palindrome_alphanumeric
+    refute "saya 1021 saya".palindrome?
+  end
+
+  # test for integer
+
+  def test_integer_non_palindrome
+    refute 12345.palindrome?
+  end
+
+  def test_integer_palindrome
+    assert 12321.palindrome?
+  end
+
+  def test_array_palindrome
+    skip
+  end
+
+  def test_array_non_palindrome
+    skip
   end
 
 end

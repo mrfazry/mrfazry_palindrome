@@ -1,14 +1,26 @@
 # require "mrfazry_palindrome/version"
 
-class String
+module MrfazryPalindrome
 
   def palindrome?
-    processed_content == processed_content.reverse
+    if processed_content.empty?
+      false
+    else
+      processed_content == processed_content.reverse
+    end
   end
 
   private
 
   def processed_content
-    self.scan(/[a-z]/i).join.downcase
+    self.to_s.scan(/[a-z||\d?]/i).join.downcase
   end
+end
+
+class String
+  include MrfazryPalindrome
+end
+
+class Integer
+  include MrfazryPalindrome
 end
